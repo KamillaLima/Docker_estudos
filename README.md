@@ -44,8 +44,17 @@ Site : https://stack.desenvolvedor.expert/appendix/docker/criandoimagem.html
  - docker rename {nome do meu container} {nome novo pro meu container}  > Renomeando um container
  - unpause {nome do container} > Despausando o meu container
  - docker restart {nome do container} > Reiniciando o container
- 
-  
+ - docker run dokcersamples/static-site - Iniciando um container, dockersample = usuário que criou essa imagem , static site = nome da imagem. Deve colocar o nome do usuário caso a imagem criada não seja oficial do docker 
+ - docker run -P -d dockersamples/static-site - Iniciando um container , o -d é pro meu terminal não ficar travado , já ó -P é para que o docker seja o responsável por mapear as portas
+ - docker run -p 5000:80 -d dockersamples/static-site - Iniciando um container , o -p é para que eu mapeie as portas manualmente , 5000:80 é 5000 a porta referente a minha máquina e a 80 é a porta referente dentro do container
 
 
- 
+   ![image](https://github.com/KamillaLima/Docker_estudos/assets/102989894/e9eabcf1-8591-49d6-b761-f5e028c0a328)
+   As imagens NÃO SÃO ALTERAVEIS,desse modo,mais de um container pode consumir uma imagem e realizar alterações,pois a imagem usada não vai ser alterada
+   
+
+
+
+ --- Dockerfile
+ Se trata de um arquivo de texto onde irá conter todas as instruções para a criação de uma imagem.A extensão do arquivo é .dockerfile ou posso chamar de Dockerfile diretamente.Geralmente se usa com extensão quando possui mais de um arquivo dockerfile em uma mesma pasta.
+ - docker build -t {nome_imagem} . - Buildando a imagem , o nome da imagem eu posso escolher o que quiser  , o ponto é porque eu já estou dentro do diretorio aonde esta o meu arquivo dockerfile
